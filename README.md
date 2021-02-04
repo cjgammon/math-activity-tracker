@@ -1,8 +1,2 @@
-# math activity tracker
-site for tracking math progress.
-
-
-watch
-```
-npm run watch
-```
+# react-setup
+a basic setup for react sites i use.
