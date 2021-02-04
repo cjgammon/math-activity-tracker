@@ -1,12 +1,14 @@
 import * as React from "react";
+import { QuizView } from "./views/quizView";
 
 export default class App extends React.Component<{}> {
 
+
   render() {
     return (
-      <h1>
-          this is my app
-      </h1>
+      <div>
+        <QuizView></QuizView>
+      </div>
     );
   }
   
