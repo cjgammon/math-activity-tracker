@@ -11,7 +11,7 @@ export default class App extends React.Component<{}> {
 
     return (
       <div>
-        <QuizView problems={problems} operator="+"></QuizView>
+        <QuizView problems={problems} operator="+" max={20}></QuizView>
       </div>
     );
   }

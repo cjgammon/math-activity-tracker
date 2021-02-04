@@ -8,6 +8,7 @@ import styles from "./quizView.less";
 interface Props {
     problems: Array<any>;
     operator: string;
+    max: number;
 }
 
 interface State {
@@ -106,9 +107,12 @@ export class QuizView extends React.Component <Props, State> {
         };
 
         this.completedProblems.push(completedProblem);
+        this.problemStartTime = new Date().getTime();
 
         let currentProblem = this.state.currentProblem + 1;
-        if (currentProblem > this.state.problemPool.length - 1) {
+
+        //check if done..
+        if (currentProblem > this.props.max || currentProblem > this.state.problemPool.length - 1) {
             clearInterval(this.quizTimer);
             this.setState({
                 quizState: "finished"

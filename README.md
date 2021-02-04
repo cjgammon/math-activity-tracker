@@ -1,2 +1,14 @@
-# react-setup
-a basic setup for react sites i use.
+# math quiz app
+a basic math quiz app.
+
+```
+npm install
+```
+
+```
+npm run watch
+```
+
+```
+npm run build
+```
