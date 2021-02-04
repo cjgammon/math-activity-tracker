@@ -169,7 +169,7 @@ export class QuizView extends React.Component <Props, State> {
     renderEnd() {
         return <div className={styles.container}>
             {this.renderCompletedProblemList()}
-            <div>{this.state.time}</div>
+            <div className={styles.finalTime}>{this.state.time}</div>
             <div><button onClick={() => this.start()}>start</button></div>
         </div>
     }
@@ -179,7 +179,7 @@ export class QuizView extends React.Component <Props, State> {
 
         for (let i = 0; i < this.completedProblems.length; i++) {
             let problem = this.completedProblems[i];
-            arr.push(<div>
+            arr.push(<div className={styles.results}>
                 <span className={classnames({[styles.incorrect]: !problem.correct})}>{problem.problem}={problem.answer}</span> : {problem.time}
             </div>);
         }
