@@ -1,5 +1,5 @@
 import * as React from "react";
-import { QuizView } from "./views/quizView";
+import { QuizView } from "./views/quiz/quizView";
 
 export default class App extends React.Component<{}> {
 
