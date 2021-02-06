@@ -2,7 +2,11 @@ import * as React from "react";
 import MenuView from "./views/menu/menuView";
 import { QuizView } from "./views/quiz/quizView";
 
-export default class App extends React.Component<{}> {
+interface State{
+    problems: any;
+}
+
+export default class App extends React.Component<{}, State> {
 
     state = {
         problems: null
