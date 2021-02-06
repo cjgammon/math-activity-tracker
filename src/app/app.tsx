@@ -1,19 +1,33 @@
 import * as React from "react";
+import MenuView from "./views/menu/menuView";
 import { QuizView } from "./views/quiz/quizView";
 
 export default class App extends React.Component<{}> {
 
-  render() {
+    state = {
+        problems: null
+    }
 
-    let problems = [
-      [0, 5], [1, 5], [2, 5], [3, 5], [4, 5], [5, 5], [5, 6], [5, 7], [5, 8], [5, 9], [5, 10]
-    ];
+    onSelect(e) {
+        this.setState({problems: e})
+    }
 
-    return (
-      <div>
-        <QuizView problems={problems} operator="+" max={20}></QuizView>
-      </div>
-    );
-  }
-  
+    render() {
+
+        if (this.state.problems) {
+            return <QuizView 
+                problems={this.state.problems} 
+                operator="+" 
+                max={100}
+                onClear={() => this.setState({problems: null})}
+                ></QuizView>
+        }
+
+        return (
+            <div>
+                <MenuView onSelect={(e) => this.onSelect(e)}></MenuView>
+            </div>
+        );
+    }
+    
 }

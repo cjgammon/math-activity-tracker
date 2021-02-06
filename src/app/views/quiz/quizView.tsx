@@ -3,7 +3,7 @@ import { AnswerView } from "./answerView";
 import { Calculator } from "./calculator/calculator";
 import { ProblemView } from "./problemView";
 import { ResultsView } from "./resultsView";
-import { FunButton } from "../../../app/components/FunButton";
+import { FunButton } from "app/components/FunButton";
 import { CompleteAnimView } from "./completeAnimView";
 import styles from "./quizView.less";
 
@@ -11,6 +11,7 @@ interface Props {
     problems: Array<any>;
     operator: string;
     max: number;
+    onClear?: any;
 }
 
 interface State {
@@ -143,7 +144,7 @@ export class QuizView extends React.Component <Props, State> {
                 return <ResultsView 
                     problems={this.completedProblems} 
                     time={this.state.time}
-                    onBackClick={() => this.setState({quizState: "start"})}></ResultsView>;
+                    onBackClick={() => this.props.onClear()}></ResultsView>;
         }
     }
 

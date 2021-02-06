@@ -11,8 +11,11 @@ module.exports = {
     resolve: {
       // Add '.ts' and '.tsx' as resolvable extensions.
       extensions: [".ts", ".tsx", ".js", ".jsx"],
+      alias: {
+        "app": path.resolve(__dirname, 'src/app/')
+      }
     },
-  
+
     module: {
       rules: [
         {

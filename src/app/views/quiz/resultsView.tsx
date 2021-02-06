@@ -1,7 +1,7 @@
 import * as React from "react";
 import classnames from 'classnames';
 import styles from "./quizView.less";
-import { FunButton } from "../../../app/components/FunButton";
+import { FunButton } from "app/components/FunButton";
 
 interface Props {
     problems: Array<any>;

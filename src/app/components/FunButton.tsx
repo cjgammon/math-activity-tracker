@@ -10,6 +10,7 @@ interface Props {
     width?: number;
     height?: number;
     onClick?: any;
+    color?: string;
 }
 
 interface State {
@@ -74,7 +75,7 @@ export class FunButton extends React.Component <Props, State> {
         ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
         ctx.scale(scale, scale);
 
-        ctx.fillStyle = "#F25C78";
+        ctx.fillStyle = this.props.color ? this.props.color : "#F25C78";
         ctx.beginPath();
         ctx.arc(0, 0, this.canvas.width / 2, 0, 2 * Math.PI);
         ctx.closePath();
