@@ -17,7 +17,9 @@ export class ResultsView extends React.Component <Props, {}> {
 
     render() {
         return <div className={styles.container}>
-            {this.renderCompletedProblemList()}
+            <div className={styles.resultsList}>
+                {this.renderCompletedProblemList()}
+            </div>
             <div className={styles.finalTime}>{this.props.time}</div>
             <div>
                 <FunButton 
