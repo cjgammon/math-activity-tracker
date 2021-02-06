@@ -25,6 +25,7 @@ export class FunButton extends React.Component <Props, State> {
     ctx: CanvasRenderingContext2D;
     drawing: boolean;
     scale: number = 1;
+    delta: number = 0;
 
     constructor(props) {
         super(props);
@@ -63,12 +64,15 @@ export class FunButton extends React.Component <Props, State> {
             return;
         }
 
+        this.delta += 0.05;
+        let scale = this.scale == 1 ? 0.9 + Math.sin(this.delta) * 0.05 : this.scale;
+
         let ctx = this.ctx;
         ctx.clearRect(0, 0, 100, 100);
 
         ctx.save();
         ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
-        ctx.scale(this.scale, this.scale);
+        ctx.scale(scale, scale);
 
         ctx.fillStyle = "#F25C78";
         ctx.beginPath();
