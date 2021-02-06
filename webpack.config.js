@@ -67,7 +67,7 @@ module.exports = {
    
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'webrtc test',
+            title: 'math quiz',
             template: path.resolve(__dirname, 'src', 'index.ejs')        }),
     ]
 };
