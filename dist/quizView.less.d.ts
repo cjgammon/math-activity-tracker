@@ -6,6 +6,7 @@ declare const styles: {
   readonly "results": string;
   readonly "resultsList": string;
   readonly "finalTime": string;
+  readonly "fraction": string;
 };
 export = styles;
 
