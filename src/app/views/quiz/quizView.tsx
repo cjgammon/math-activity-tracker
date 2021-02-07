@@ -54,7 +54,12 @@ export class QuizView extends React.Component <Props, State> {
         this.problemStartTime = new Date().getTime();
         this.quizStartTime = new Date().getTime();
         this.completedProblems = [];
+
+        if (this.quizTimer) {
+            clearInterval(this.quizTimer);
+        }
         this.quizTimer = setInterval(() => this.handle_TIMER(), 1000);
+
 
         this.setState({
             quizState: "quiz",

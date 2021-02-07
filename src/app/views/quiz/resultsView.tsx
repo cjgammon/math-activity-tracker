@@ -20,7 +20,10 @@ export class ResultsView extends React.Component <Props, {}> {
             <div className={styles.resultsList}>
                 {this.renderCompletedProblemList()}
             </div>
-            <div className={styles.finalTime}>{this.props.time}</div>
+            <div>
+                <div className={styles.finalTime}>{this.getTime()}</div>
+                <div className={classnames({[styles.finalTime]: true, [styles.fraction]: true})}>{this.getScore()}</div>
+            </div>
             <div>
                 <FunButton 
                     height={100}
@@ -41,6 +44,21 @@ export class ResultsView extends React.Component <Props, {}> {
         }
 
         return arr;
+    }
+
+    getTime() {
+        return this.props.time;
+    }
+
+    getScore() {
+        let correct = 0;
+        for (let i = 0; i < this.props.problems.length; i++) {
+            if (this.props.problems[i].correct) {
+                correct ++;
+            }
+        }
+
+        return `${correct}/${this.props.problems.length}`;
     }
 
 }
