@@ -1,9 +1,9 @@
 import * as React from "react";
-import MenuView from "./views/menu/menuView";
+import MenuView, { QuizDefinition } from "./views/menu/menuView";
 import { QuizView } from "./views/quiz/quizView";
 
 interface State{
-    problems: any;
+    problems: QuizDefinition;
 }
 
 export default class App extends React.Component<{}, State> {
@@ -20,9 +20,10 @@ export default class App extends React.Component<{}, State> {
 
         if (this.state.problems) {
             return <QuizView 
-                problems={this.state.problems} 
-                operator="+" 
+                problems={this.state.problems.arr} 
+                operator={this.state.problems.operator}
                 max={100}
+                maxTime={this.state.problems.time || -1}
                 onClear={() => this.setState({problems: null})}
                 ></QuizView>
         }

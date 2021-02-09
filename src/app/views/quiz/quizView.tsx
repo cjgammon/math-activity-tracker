@@ -11,6 +11,7 @@ interface Props {
     problems: Array<any>;
     operator: string;
     max: number;
+    maxTime: number;
     onClear?: any;
 }
 
@@ -60,7 +61,6 @@ export class QuizView extends React.Component <Props, State> {
         }
         this.quizTimer = setInterval(() => this.handle_TIMER(), 1000);
 
-
         this.setState({
             quizState: "quiz",
             problemPool,
@@ -77,7 +77,15 @@ export class QuizView extends React.Component <Props, State> {
 
         this.setState({
             time: Math.round(elapsedTime)
-        })
+        });
+
+        if (this.props.maxTime !== -1 && 
+            (elapsedTime / 60) > this.props.maxTime) {
+            clearInterval(this.quizTimer);
+            this.setState({
+                quizState: "finished"
+            });
+        }
     }
 
     handle_button_CLICK(e) {
