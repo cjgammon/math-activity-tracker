@@ -109,8 +109,13 @@ export class QuizView extends React.Component <Props, State> {
         let time: number = (endTime - this.problemStartTime) / 1000;
 
         let correctAnswer: number;
-        if (this.state.operator == "+") {
-            correctAnswer = numberA + numberB;
+        switch (this.state.operator) {
+            case "+":
+                correctAnswer = numberA + numberB;
+            break;
+            case "-":
+                correctAnswer = numberA - numberB;
+            break;
         }
 
         let completedProblem = {
