@@ -116,6 +116,9 @@ export class QuizView extends React.Component <Props, State> {
             case "-":
                 correctAnswer = numberA - numberB;
             break;
+            case "x":
+                correctAnswer = numberA * numberB;
+            break;
         }
 
         let completedProblem = {
