@@ -106,6 +106,12 @@ export default class MenuView extends React.Component<Props, {}> {
                 onClick={() => this.selectItem(this.problems[i])}>{i}</FunButton>);
         }
 
+        arr.push(<FunButton 
+            width={60}
+            height={60}
+            color={this.colors[Math.floor(Math.random() * this.colors.length)]}
+            onClick={() => this.selectItem([this.problems['+'], this.problems['-']])}>+/-</FunButton>)
+
         return arr;
     }
   

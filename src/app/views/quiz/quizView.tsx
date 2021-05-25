@@ -134,7 +134,7 @@ export class QuizView extends React.Component <Props, State> {
         let currentProblem = this.state.currentProblem + 1;
 
         //check if done..
-        if (currentProblem > this.props.max || currentProblem > this.state.problemPool.length - 1) {
+        if (currentProblem > this.props.max - 1 || currentProblem > this.state.problemPool.length - 1) {
             clearInterval(this.quizTimer);
             this.setState({
                 quizState: "finished"
