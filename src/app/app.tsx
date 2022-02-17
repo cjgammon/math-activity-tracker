@@ -19,6 +19,8 @@ export default class App extends React.Component<{}, State> {
 
     render() {
 
+        console.log('woo');
+
         if (this.state.problems && this.state.problems.length) {
             return <QuizViewCombined 
             problems={this.state.problems}
